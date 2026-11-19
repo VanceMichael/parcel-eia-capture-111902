@@ -1,0 +1,770 @@
+{
+  "label": "评价分区与公开查件服务",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/registry/releases",
+      "note": "坐标是在本地项目平面格网中的米。validFrom 是业务生效日，tileKeys 枚举发布的查件网格。overlapPolicy 只约束同层。",
+      "steps": [
+        [
+          {
+            "id": "Z-17",
+            "validFrom": "2026-11-01",
+            "tileKeys": [
+              "west",
+              "east"
+            ],
+            "overlapPolicy": "并列待问询"
+          }
+        ],
+        [
+          {
+            "id": "Z-17",
+            "validFrom": "2026-11-01",
+            "tileKeys": [
+              "west",
+              "east"
+            ],
+            "overlapPolicy": "并列待问询"
+          },
+          {
+            "id": "Z-18",
+            "validFrom": "2026-12-10",
+            "tileKeys": [
+              "west",
+              "east",
+              "north"
+            ],
+            "overlapPolicy": "并列待问询"
+          }
+        ]
+      ],
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "Z-18 的 west 网格返回截断，subcells 为可检索的子网格，所有多边形均闭合。边界可以共享，重复项的 unit 与 feature 相同。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 1,
+              "polygon": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  0,
+                  9
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 1,
+              "polygon": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  0,
+                  9
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-17",
+        "cell": "west"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "东区。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "E",
+              "feature": 1,
+              "polygon": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ],
+                [
+                  10,
+                  9
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  6,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "E",
+              "feature": 1,
+              "polygon": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ],
+                [
+                  10,
+                  9
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  6,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-17",
+        "cell": "east"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "截断时 records 只是预览，不能证明完整。",
+      "steps": [
+        {
+          "complete": false,
+          "subcells": [
+            "west-south",
+            "west-north"
+          ],
+          "records": []
+        },
+        {
+          "complete": false,
+          "subcells": [
+            "west-south",
+            "west-north"
+          ],
+          "records": []
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18",
+        "cell": "west"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "西区上、下片的边界共线。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 1,
+              "polygon": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 1,
+              "polygon": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18",
+        "cell": "west-south"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "西区北片与北区接边。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 2,
+              "polygon": [
+                [
+                  0,
+                  4
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  0,
+                  9
+                ],
+                [
+                  0,
+                  4
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "W",
+              "feature": 2,
+              "polygon": [
+                [
+                  0,
+                  4
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  0,
+                  9
+                ],
+                [
+                  0,
+                  4
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18",
+        "cell": "west-north"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "东区与北区局部重叠。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "E",
+              "feature": 1,
+              "polygon": [
+                [
+                  5,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ],
+                [
+                  10,
+                  9
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  5,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "E",
+              "feature": 1,
+              "polygon": [
+                [
+                  5,
+                  0
+                ],
+                [
+                  10,
+                  0
+                ],
+                [
+                  10,
+                  9
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  5,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18",
+        "cell": "east"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maps/cells",
+      "note": "北区。",
+      "steps": [
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "N",
+              "feature": 1,
+              "polygon": [
+                [
+                  4,
+                  5
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "complete": true,
+          "records": [
+            {
+              "unit": "N",
+              "feature": 1,
+              "polygon": [
+                [
+                  4,
+                  5
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  8,
+                  9
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18",
+        "cell": "north"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/registry/clauses",
+      "note": "level 为单元、地块或暂停。pauseTarget 指明受暂停的条目；原件按编号与发布查询。",
+      "steps": [
+        [
+          {
+            "id": "E-5",
+            "level": "单元",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "备查工艺清单",
+            "document": "D60"
+          },
+          {
+            "id": "W-1",
+            "level": "单元",
+            "unit": "W",
+            "use": "精密装配",
+            "limit": "施工车辆限时",
+            "document": "D61"
+          }
+        ],
+        [
+          {
+            "id": "E-5",
+            "level": "单元",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "备查工艺清单",
+            "document": "D60"
+          },
+          {
+            "id": "W-1",
+            "level": "单元",
+            "unit": "W",
+            "use": "精密装配",
+            "limit": "施工车辆限时",
+            "document": "D61"
+          }
+        ]
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-17"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/registry/clauses",
+      "note": "新发布中的北区另行公开。fromDate、throughDate 两端均包含。",
+      "steps": [
+        [
+          {
+            "id": "E-5",
+            "level": "单元",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "备查工艺清单",
+            "document": "D60"
+          },
+          {
+            "id": "W-1",
+            "level": "单元",
+            "unit": "W",
+            "use": "精密装配",
+            "limit": "施工车辆限时",
+            "document": "D61"
+          },
+          {
+            "id": "N-2",
+            "level": "单元",
+            "unit": "N",
+            "use": "精密装配",
+            "limit": "不登记夜间装卸",
+            "document": "D65"
+          },
+          {
+            "id": "P-9",
+            "level": "地块",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "提交夜间声源说明",
+            "document": "D62",
+            "parcel": [
+              [
+                6,
+                1
+              ],
+              [
+                9,
+                1
+              ],
+              [
+                9,
+                3
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                1
+              ]
+            ]
+          },
+          {
+            "id": "U-2",
+            "level": "暂停",
+            "unit": "E",
+            "use": "精密装配",
+            "pauseTarget": "P-9",
+            "document": "D63",
+            "fromDate": "2026-12-15",
+            "throughDate": "2026-12-17"
+          }
+        ],
+        [
+          {
+            "id": "E-5",
+            "level": "单元",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "备查工艺清单",
+            "document": "D60"
+          },
+          {
+            "id": "W-1",
+            "level": "单元",
+            "unit": "W",
+            "use": "精密装配",
+            "limit": "施工车辆限时",
+            "document": "D61"
+          },
+          {
+            "id": "N-2",
+            "level": "单元",
+            "unit": "N",
+            "use": "精密装配",
+            "limit": "不登记夜间装卸",
+            "document": "D65"
+          },
+          {
+            "id": "P-9",
+            "level": "地块",
+            "unit": "E",
+            "use": "精密装配",
+            "limit": "提交夜间声源说明",
+            "document": "D62",
+            "parcel": [
+              [
+                6,
+                1
+              ],
+              [
+                9,
+                1
+              ],
+              [
+                9,
+                3
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                1
+              ]
+            ]
+          },
+          {
+            "id": "U-2",
+            "level": "暂停",
+            "unit": "E",
+            "use": "精密装配",
+            "pauseTarget": "P-9",
+            "document": "D63",
+            "fromDate": "2026-12-15",
+            "throughDate": "2026-12-17"
+          }
+        ]
+      ],
+      "status": 200,
+      "kind": "json",
+      "query": {
+        "release": "Z-18"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/registry/documents",
+      "note": "该接口列出当前可取得的发布原件。release 和 document 一起标识。",
+      "steps": [
+        [
+          {
+            "release": "Z-17",
+            "document": "D60",
+            "text": "东区工艺资料备查通知"
+          },
+          {
+            "release": "Z-17",
+            "document": "D61",
+            "text": "西区施工车辆时段"
+          }
+        ],
+        [
+          {
+            "release": "Z-17",
+            "document": "D60",
+            "text": "东区工艺资料备查通知"
+          },
+          {
+            "release": "Z-17",
+            "document": "D61",
+            "text": "西区施工车辆时段"
+          },
+          {
+            "release": "Z-18",
+            "document": "D61",
+            "text": "西区施工车辆时段"
+          },
+          {
+            "release": "Z-18",
+            "document": "D60",
+            "text": "东区工艺资料备查通知"
+          },
+          {
+            "release": "Z-18",
+            "document": "D62",
+            "text": "东区地块夜间声源告知"
+          },
+          {
+            "release": "Z-18",
+            "document": "D63",
+            "text": "十二月临时暂停条款"
+          }
+        ]
+      ],
+      "status": 200,
+      "kind": "json"
+    }
+  ]
+}
