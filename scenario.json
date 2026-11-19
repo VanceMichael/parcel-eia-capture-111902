@@ -765,6 +765,89 @@
       ],
       "status": 200,
       "kind": "json"
+    },
+    {
+      "method": "POST",
+      "path": "/archives/orders",
+      "note": "调件同时提交 requestKey、release、unit、use、documents。受理仅确认查件请求，已经归档的原件另查交付。",
+      "steps": [
+        {
+          "fields": [
+            "requestKey",
+            "release",
+            "unit",
+            "use",
+            "documents"
+          ],
+          "pendingUntil": 0,
+          "response": "receipt"
+        },
+        {
+          "fields": [
+            "requestKey",
+            "release",
+            "unit",
+            "use",
+            "documents"
+          ],
+          "pendingUntil": 0,
+          "response": "receipt"
+        }
+      ],
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "method": "GET",
+      "path": "/archives/orders",
+      "note": "用 requestKey 查询调件请求是否受理。",
+      "steps": [
+        {
+          "lookup": "receipt",
+          "key": "requestKey"
+        },
+        {
+          "lookup": "receipt",
+          "key": "requestKey"
+        }
+      ],
+      "status": 200,
+      "kind": "json"
+    },
+    {
+      "method": "GET",
+      "path": "/archives/fulfillment",
+      "note": "每页为档案室独立发布的调件交付，requestKey 对应提交的经办号。staged 表示待交付，delivered 带原件。",
+      "steps": [
+        [
+          {
+            "requestKey": "C-14-Z17-W",
+            "release": "Z-17",
+            "unit": "W",
+            "document": "D61",
+            "state": "staged"
+          }
+        ],
+        [
+          {
+            "requestKey": "C-14-Z17-W",
+            "release": "Z-17",
+            "unit": "W",
+            "document": "D61",
+            "state": "delivered",
+            "text": "西区施工车辆时段"
+          },
+          {
+            "requestKey": "C-14-Z18-N",
+            "release": "Z-18",
+            "unit": "N",
+            "document": "D65",
+            "state": "staged"
+          }
+        ]
+      ],
+      "status": 200,
+      "kind": "json"
     }
   ]
 }

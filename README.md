@@ -24,3 +24,6 @@
 - `GET /registry/clauses?release=Z-17` level 为单元、地块或暂停。pauseTarget 指明受暂停的条目；原件按编号与发布查询。
 - `GET /registry/clauses?release=Z-18` 新发布中的北区另行公开。fromDate、throughDate 两端均包含。
 - `GET /registry/documents` 该接口列出当前可取得的发布原件。release 和 document 一起标识。
+- `POST /archives/orders` 调件同时提交 requestKey、release、unit、use、documents。受理仅确认查件请求，已经归档的原件另查交付。
+- `GET /archives/orders` 用 requestKey 查询调件请求是否受理。
+- `GET /archives/fulfillment` 每页为档案室独立发布的调件交付，requestKey 对应提交的经办号。staged 表示待交付，delivered 带原件。
